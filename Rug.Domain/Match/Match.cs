@@ -1,4 +1,3 @@
-﻿using Rug.Domain.Championship;
 using Rug.Domain.Team;
 using System;
 using System.Collections.Generic;
