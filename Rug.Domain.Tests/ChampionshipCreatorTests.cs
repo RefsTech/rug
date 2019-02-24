@@ -12,10 +12,13 @@ namespace Rug.Domain.Tests
         public void CreateMatches_WhenTeamsAreOddNumber_ShouldReturnOnlyValidMatches()
         {
             // Arrange
-            var draw = new Draw(new Dictionary<int, byte>()
+            var draw = new Draw(new Dictionary<int, Team.Team>()
             {
-                // [drawNumber] = teamId
-                [1] = 1, [2] = 2, [3] = 3, [4] = 4, [5] = 5
+                [1] = new Team.Team(1),
+                [2] = new Team.Team(2),
+                [3] = new Team.Team(3),
+                [4] = new Team.Team(4),
+                [5] = new Team.Team(5)
             });
 
             // Act
@@ -30,10 +33,14 @@ namespace Rug.Domain.Tests
         public void CreateMatches_WhenTeamsAreEvenNumber_ShouldReturnAllMatches()
         {
             // Arrange
-            var draw = new Draw(new Dictionary<int, byte>()
+            var draw = new Draw(new Dictionary<int, Team.Team>()
             {
-                // [drawNumber] = teamId
-                [1] = 1, [2] = 2, [3] = 3, [4] = 4, [5] = 5, [6] = 6
+                [1] = new Team.Team(1),
+                [2] = new Team.Team(2),
+                [3] = new Team.Team(3),
+                [4] = new Team.Team(4),
+                [5] = new Team.Team(5),
+                [6] = new Team.Team(6)
             });
 
             // Act
@@ -47,10 +54,12 @@ namespace Rug.Domain.Tests
         public void CreateMatches_WhenTeamsAreShuffled_ShouldReturnSameBergerPairings()
         {
             // Arrange
-            var draw = new Draw(new Dictionary<int, byte>()
+            var draw = new Draw(new Dictionary<int, Team.Team>()
             {
-                // [drawNumber] = teamId
-                [1] = 4, [2] = 2, [3] = 1, [4] = 3
+                [1] = new Team.Team(4),
+                [2] = new Team.Team(2),
+                [3] = new Team.Team(1),
+                [4] = new Team.Team(3)
             });
             var expectedFirst = new Match.Match(home: new Team.Team(4), away: new Team.Team(3));
             var expectedMiddle = new Match.Match(home: new Team.Team(4), away: new Team.Team(2));

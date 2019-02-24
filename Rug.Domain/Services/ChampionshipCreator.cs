@@ -15,8 +15,8 @@ namespace Rug.Domain.Services
             {
                 matches.Add(
                     new Match.Match(
-                        new Team.Team(draw.Teams[pairings[matchPair, 0]]), 
-                        new Team.Team(draw.Teams[pairings[matchPair, 1]])));
+                        draw.Teams[pairings[matchPair, 0]], 
+                        draw.Teams[pairings[matchPair, 1]]));
             }
 
             return matches.Where(match => match.Away.Id != 0 && match.Home.Id != 0);

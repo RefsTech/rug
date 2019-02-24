@@ -8,5 +8,7 @@
         }
 
         public byte Id { get; }
+
+        public static Team Default => new Team(0);
     }
 }
