@@ -2,13 +2,19 @@
 {
     public class Team
     {
-        public Team(byte id)
+        public Team(string name, League.League league, Address hallAddress)
         {
-            Id = id;
+            Name = name;
+            League = league;
+            HallAddress = hallAddress;
         }
 
-        public byte Id { get; }
+        public string Name { get; private set; }
 
-        public static Team Default => new Team(0);
+        public static Team Default = new Team("Default", new League.League(), new Address("Default", "Default"));
+        
+        public League.League League { get; private set; }
+
+        public Address HallAddress { get; private set; }
     }
 }
