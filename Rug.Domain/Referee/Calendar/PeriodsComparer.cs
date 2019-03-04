@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Rug.Domain.Championship;
 
-namespace Rug.Domain.Referee
+namespace Rug.Domain.Referee.Calendar
 {
     public class PeriodsComparer : IComparer<Period>
     {

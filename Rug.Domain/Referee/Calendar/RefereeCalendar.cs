@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Rug.Domain.Championship;
 
-namespace Rug.Domain.Referee
+namespace Rug.Domain.Referee.Calendar
 {
     public class RefereeCalendar
     {

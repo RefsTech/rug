@@ -1,7 +1,7 @@
 ﻿using System;
 using Rug.Domain.Championship;
 
-namespace Rug.Domain.Referee
+namespace Rug.Domain.Referee.Calendar
 {
     public abstract class CalendarRecord
     {

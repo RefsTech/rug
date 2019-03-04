@@ -9,10 +9,10 @@
             HallAddress = hallAddress;
         }
 
-        public string Name { get; private set; }
+        public string Name { get; }
 
-        public League.League League { get; private set; }
+        public League.League League { get; }
 
-        public Address HallAddress { get; private set; }
+        public Address HallAddress { get; }
     }
 }

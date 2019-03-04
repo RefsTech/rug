@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 
 namespace Rug.Domain.Championship
 {
@@ -39,20 +38,5 @@ namespace Rug.Domain.Championship
         {
             return Intersects(p);
         }
-    }
-
-    public interface IPublisher
-    {
-        Task SetEvent<TEvent>() where TEvent : IEvent;
-    }
-
-    public interface IEvent
-    {
-
-    }
-
-    public interface ICommand
-    {
-
     }
 }

@@ -1,23 +1,32 @@
-﻿using Rug.Domain.Team;
+﻿using Rug.Domain.Championship;
+using Rug.Domain.Match.MatchReferees;
+using Rug.Domain.Referee.Calendar;
 
 namespace Rug.Domain.Referee
 {
     public class Referee {
 
-        public Address Address { get; set; }
-
         public RefereeCategory RefereeCategory { get; set; }
 
         public RefereeCalendar RefereeCalendar { get; set; }
 
-        internal bool CanJudgeLeague(League.League league)
+        public bool CanJudgeLeague(League.League league)
         {
             return league.CanBeJudgedByRefereeCategory(RefereeCategory);
         }
 
-        internal bool IsAllowedForNominationOnMatch(Match.Match match)
+        public bool IsAllowedForNominationOnMatch(Match.Match match)
         {
             return RefereeCalendar.IsAvailableFor(match.Period);
+        }
+
+        public void NominatedOnMatchAs(Match.Match match, MatchRefereeType matchRefereeType, IPublisher publisher)
+        {
+            if (IsAllowedForNominationOnMatch(match))
+            {
+                RefereeCalendar.Add(new MatchCalendarRecord(match, matchRefereeType));
+                publisher.SendEvent(new RefereeCalendarUpdated(this));
+            }
         }
     }
 }
